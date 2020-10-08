@@ -62,12 +62,7 @@ Conditions:
   BastionPublicPrivateDatabaseSG: !Equals [!Ref SecurityGroupsPatterns, "bastion | public | private | database"]
   BastionPublicPrivateDatabaseCacheSG: !Equals [!Ref SecurityGroupsPatterns, "bastion | public | private | database | cache"]
   # template conditionals
-  BastionPublicSG: !Or
-    - !Condition BastionPublicSG
-    - !Condition BastionPublicPrivateSG
-    - !Condition BastionPublicPrivateDatabaseSG
-    - !Condition BastionPublicPrivateDatabaseCacheSG
-
+  
 Resources:
   EmptySecurityGroup:
     Condition: EmptySG
